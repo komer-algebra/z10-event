@@ -22,21 +22,29 @@ function App() {
   }
 
   const changeName = [];
+  // for (let i = 0; i < initialUsers.length; i++) {
+  //   changeName.push(
+  //     (function (event) {
+  //       const newUsers = [...users];
+  //       newUsers[i].name = event.target.value;
+  //       setUsers(newUsers);
+  //     })
+  //   );
+  // }
+
   for (let i = 0; i < initialUsers.length; i++) {
     changeName.push(
       (function (event) {
-        const newUsers = [...users];
-        newUsers[i].name = event.target.value;
-        setUsers(newUsers);
+        setUsers(prevState => [...prevState, users[i].name = event.target.value]);
       })
     );
   }
 
-  const tekst = "Proizvoljan tekst"
+  const tekst = "...i volim sve što vole mladi"
 
   return (
     <>
-      <h1>State</h1>
+      <h1>State + event handlers</h1>
 
       <h2>1. User s input-om u sebi</h2>
       <UserFunction name={users[1].name} age={users[1].age} changeName={changeName[1]} />
@@ -44,9 +52,9 @@ function App() {
       <h2>2. Ostaci prošlog zadatka</h2>
       <UserClass name={users[0].name} age={users[0].age} />
       <UserChildren name={users[2].name} age={users[2].age}>
-        {tekst}
+        {tekst}<br/><br/>
       </UserChildren>
-      <button onClick={uvecajGodine}>Uvecaj godine</button>
+      <button onClick={uvecajGodine}>Uvecaj godine svima!</button>
     </>
   )
 }
