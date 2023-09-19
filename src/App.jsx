@@ -37,8 +37,12 @@ function App() {
   return (
     <>
       <h1>State</h1>
-      <UserClass name={users[0].name} age={users[0].age} />
+
+      <h2>1. User s input-om u sebi</h2>
       <UserFunction name={users[1].name} age={users[1].age} changeName={changeName[1]} />
+
+      <h2>2. Ostaci prošlog zadatka</h2>
+      <UserClass name={users[0].name} age={users[0].age} />
       <UserChildren name={users[2].name} age={users[2].age}>
         {tekst}
       </UserChildren>
