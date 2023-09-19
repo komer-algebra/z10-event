@@ -1,8 +1,7 @@
-# React + Vite
+# z10 - event
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Početno stanje aplikacije je završno stanje prethodne vjezbe (kako j e Matej rješio):
+1. U komponentu User potrebno je dodati input za unos teksta
+2. Interakcijom s inputom za unos teksta treba mijenjati ime korisnika
+3. Trenutno ime User-a uvijek treba pisati unutar inputa
+4. Funkcija promjena imena treba raditi samo na jednom korisniku

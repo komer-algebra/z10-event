@@ -5,9 +5,9 @@ import { UserClass, UserFunction, UserChildren } from './user'
 function App() {
 
   const initialUsers = [
-    { name: 'Ivan', years: 30 },
-    { name: 'Marko', years: 35 },
-    { name: 'Ana', years: 25 },
+    { name: 'Ivan', age: 30 },
+    { name: 'Marko', age: 35 },
+    { name: 'Ana', age: 25 },
   ]
 
   const [users, setUsers] = useState(initialUsers)
@@ -18,18 +18,24 @@ function App() {
   const uvecajGodine = () => {
     setUsers(prevState => {
       const updatedUsers = prevState.map(user => {
-        return { ...user, years: user.years + 1 }
+        return { ...user, age: user.age + 1 }
       })
       return updatedUsers
     })
   }
 
+  const changeName = (event) => {
+    const newUsers = [...users]
+    newUsers[1].name = event.target.value;
+    setUsers(newUsers);
+  }
+
   return (
     <>
       <h1>State</h1>
-      <UserClass name={users[0].name} years={users[0].years} />
-      <UserFunction name={users[1].name} years={users[1].years} />
-      <UserChildren name={users[2].name} years={users[2].years}>
+      <UserClass name={users[0].name} age={users[0].age} />
+      <UserFunction name={users[1].name} age={users[1].age} changeName={changeName}/>
+      <UserChildren name={users[2].name} age={users[2].age}>
         {tekst}
       </UserChildren>
       <button onClick={uvecajGodine}>Uvecaj godine</button>
