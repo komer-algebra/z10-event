@@ -12,9 +12,6 @@ function App() {
 
   const [users, setUsers] = useState(initialUsers)
 
-  const tekst = "Proizvoljan tekst"
-
-
   const uvecajGodine = () => {
     setUsers(prevState => {
       const updatedUsers = prevState.map(user => {
@@ -24,17 +21,24 @@ function App() {
     })
   }
 
-  const changeName = (event) => {
-    const newUsers = [...users]
-    newUsers[1].name = event.target.value;
-    setUsers(newUsers);
+  const changeName = [];
+  for (let i = 0; i < initialUsers.length; i++) {
+    changeName.push(
+      (function (event) {
+        const newUsers = [...users];
+        newUsers[i].name = event.target.value;
+        setUsers(newUsers);
+      })
+    );
   }
+
+  const tekst = "Proizvoljan tekst"
 
   return (
     <>
       <h1>State</h1>
       <UserClass name={users[0].name} age={users[0].age} />
-      <UserFunction name={users[1].name} age={users[1].age} changeName={changeName}/>
+      <UserFunction name={users[1].name} age={users[1].age} changeName={changeName[1]} />
       <UserChildren name={users[2].name} age={users[2].age}>
         {tekst}
       </UserChildren>
